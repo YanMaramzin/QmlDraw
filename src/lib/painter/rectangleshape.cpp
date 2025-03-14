@@ -51,3 +51,27 @@ void RectangleShape::moveBy(const QPointF &delta)
     m_rect.translate(delta);
     emit needsUpdate();
 }
+
+void RectangleShape::setX(qreal x)
+{
+    m_rect.moveLeft(x);
+    emit geometryChanged();
+}
+
+void RectangleShape::setY(qreal y)
+{
+    m_rect.moveTop(y);
+    emit geometryChanged();
+}
+
+void RectangleShape::setWidth(qreal w)
+{
+    m_rect.setWidth(w);
+    emit geometryChanged();
+}
+
+void RectangleShape::setHeight(qreal h)
+{
+    m_rect.setHeight(h);
+    emit geometryChanged();
+}

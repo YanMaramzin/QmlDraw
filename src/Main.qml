@@ -80,7 +80,8 @@ Window {
                     }
 
                     PropertyShapePanel {
-
+                        canvas: canvas
+                        visible: canvas.selectedShape !== null
                     }
 
                     Button {

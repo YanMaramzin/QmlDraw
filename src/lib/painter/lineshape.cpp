@@ -55,3 +55,27 @@ void LineShape::moveBy(const QPointF &delta)
     m_line.translate(delta);
     emit needsUpdate();
 }
+
+void LineShape::setX(qreal x)
+{
+    m_line.setP1(QPointF(x, y()));
+    emit geometryChanged();
+}
+
+void LineShape::setY(qreal y)
+{
+    m_line.setP1(QPointF(x(), y));
+    emit geometryChanged();
+}
+
+void LineShape::setX2(qreal x2)
+{
+    m_line.setP2(QPointF(x2, y2()));
+    emit geometryChanged();
+}
+
+void LineShape::setY2(qreal y2)
+{
+    m_line.setP2(QPointF(x2(), y2));
+    emit geometryChanged();
+}

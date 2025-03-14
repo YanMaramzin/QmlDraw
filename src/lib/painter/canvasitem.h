@@ -13,8 +13,7 @@ class CanvasItem : public QQuickItem
     Q_PROPERTY(ShapeType drawingType READ drawingType WRITE setDrawingType NOTIFY drawingTypeChanged)
     Q_PROPERTY(bool editMode READ editMode WRITE setEditMode NOTIFY editModeChanged FINAL)
     Q_PROPERTY(ShapesModel *shapesModel READ shapesModel CONSTANT)
-    Q_PROPERTY(
-        Shape *selectedShape READ selectedShape WRITE setSelectedShape NOTIFY selectedShapeChanged)
+    Q_PROPERTY(Shape *selectedShape READ selectedShape WRITE setSelectedShape NOTIFY selectedShapeChanged)
     QML_ELEMENT
 public:
     enum ShapeType { None, Rectangle, Line };

@@ -9,6 +9,9 @@ class Shape : public QObject
     Q_OBJECT
 
     Q_PROPERTY(bool selected READ selected WRITE setSelected NOTIFY selectedChanged)
+    Q_PROPERTY(qreal x READ x WRITE setX NOTIFY geometryChanged FINAL)
+    Q_PROPERTY(qreal y READ y WRITE setY NOTIFY geometryChanged FINAL)
+    Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
 public:
     enum Type { Rectangle, Line };
     Q_ENUM(Type)
@@ -26,13 +29,21 @@ public:
 
     Type type() const { return m_type; }
     QColor color() const { return m_color; }
-    void setColor(QColor color) { m_color = color; }
+    void setColor(QColor color);
     bool selected() const;
     void setSelected(bool value);
+
+    virtual qreal x() const = 0;
+    virtual void setX(qreal x) = 0;
+
+    virtual qreal y() const = 0;
+    virtual void setY(qreal y) = 0;
 
 signals:
     void selectedChanged();
     void needsUpdate();
+    void geometryChanged();
+    void colorChanged();
 
 protected:
     Type m_type;
